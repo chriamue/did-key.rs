@@ -18,7 +18,7 @@ crate-type = ["lib", "cdylib", "staticlib"]
 [dependencies]
 ed25519-dalek = "1.0"
 x25519-dalek = "1.1"
-curve25519-dalek = "3.0"
+curve25519-dalek = "4.1"
 bs58 = "0.4.0"
 sha2 = "0.9"
 getrandom = { version = "0.2", features = ["js"] }
