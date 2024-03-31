@@ -1,6 +1,7 @@
+use bls12_381_plus::elliptic_curve::Group;
+use bls12_381_plus::group::GroupEncoding;
 use bls12_381_plus::*;
 use hkdf::HkdfExtract;
-use p256::elliptic_curve::group::GroupEncoding;
 
 use crate::{
     didcore::{Config, KeyFormat, JWK},
@@ -57,7 +58,7 @@ impl Generate for Bls12381KeyPairs {
         bytes.copy_from_slice(secret_key_bytes);
         bytes.reverse();
 
-        let sk = Scalar::from_bytes(&bytes).unwrap();
+        let sk = Scalar::from_be_bytes(&bytes).unwrap();
         let mut pk_g1 = G1Projective::generator();
         pk_g1 *= sk;
         let mut pk_g2 = G2Projective::generator();
@@ -77,7 +78,7 @@ impl KeyMaterial for Bls12381KeyPairs {
     }
 
     fn private_key_bytes(&self) -> Vec<u8> {
-        let mut bytes = self.secret_key.unwrap().to_bytes().to_vec();
+        let mut bytes = self.secret_key.unwrap().to_be_bytes().to_vec();
         bytes.reverse();
         bytes
     }
