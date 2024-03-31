@@ -1,7 +1,10 @@
 [package]
 name = "did-key"
 version = "0.2.1"
-authors = ["Tomislav Markovski <tomislav@trinsic.id>", "Allison Bellows <alibellows@gmail.com>"]
+authors = [
+    "Tomislav Markovski <tomislav@trinsic.id>",
+    "Allison Bellows <alibellows@gmail.com>",
+]
 edition = "2018"
 license = "Apache-2.0"
 description = "Implementation of the did:key method"
@@ -10,12 +13,12 @@ repository = "https://github.com/decentralized-identity/did-key.rs"
 readme = "README.md"
 
 [lib]
-crate-type = [ "lib", "cdylib", "staticlib" ]
+crate-type = ["lib", "cdylib", "staticlib"]
 
 [dependencies]
-ed25519-dalek = "1.0.1"
-x25519-dalek = "1.1.0"
-curve25519-dalek = "3.0.0"
+ed25519-dalek = "1.0"
+x25519-dalek = "1.1"
+curve25519-dalek = "3.0"
 bs58 = "0.4.0"
 sha2 = "0.9"
 getrandom = { version = "0.2", features = ["js"] }
